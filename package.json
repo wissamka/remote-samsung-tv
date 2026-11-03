@@ -1,0 +1,26 @@
+{
+  "name": "remote-samsung-tv",
+  "version": "1.0.0",
+  "description": "Discover and control a Samsung smart TV from a local web browser.",
+  "type": "module",
+  "bin": {
+    "remote-samsung-tv": "bin/remote.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "public",
+    "server.mjs"
+  ],
+  "scripts": {
+    "start": "node bin/remote.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ws": "8.22.1"
+  },
+  "license": "MIT"
+}

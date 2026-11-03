@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeeae2">
+  <title>Remote Samsung TV</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead"><a href="/" class="brand"><span class="brand-mark" aria-hidden="true">r.</span> TV REMOTE</a><span class="local-note"><i></i> Home network</span></header>
+    <main>
+      <section class="intro" aria-labelledby="heading">
+        <p class="eyebrow">A LITTLE LESS REACHING</p>
+        <h1 id="heading">Your TV.<br> Within reach.</h1>
+        <p class="lede">Control your Samsung TV from your browser.</p>
+        <div class="connection-panel">
+          <div class="device-heading"><span class="device-icon" data-icon="tv" aria-hidden="true"></span><div><h2 id="device-name">Samsung TV</h2><p id="device-model">Smart TV</p></div></div>
+          <div class="status-line"><span id="status-dot" class="status-dot"></span><span id="status-label">Checking connection</span></div>
+          <p id="connection-message" role="status" aria-live="polite">Looking for your TV on the local network…</p>
+          <button id="connect" class="connect-button" disabled><span data-icon="link" aria-hidden="true"></span><span id="connect-label">Connect to TV</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <button id="check" class="text-button">Check connection</button>
+        </div>
+
+        <section class="setup"><h2>Set up your remote</h2>
+          <ol><li>Power on the TV and join the same home network.</li>
+          <li>Find your TV below, or enter its IP under TV address.</li>
+          <li>Choose Connect to TV, then select Allow on the TV screen.</li></ol>
+          <p id="computer-ips"></p><button type="button" id="discover">Find TVs</button>
+          <p id="search-status" role="status"></p><div id="devices"></div>
+        </section>
+        <details class="settings"><summary>TV address <span id="address-summary">Choose a TV</span></summary><form id="settings-form"><label for="host">Local IP address</label><div class="input-row"><input id="host" name="host" placeholder="TV IPv4 address" inputmode="decimal" autocomplete="off" spellcheck="false" required aria-describedby="address-help"><button type="submit">Save</button></div><p id="address-help">Find it in your TV’s Network Status → IP Settings. Changing the address requires connecting again.</p></form></details>
+        <details class="shortcuts"><summary>Keyboard shortcuts</summary><dl><div><dt>Navigate</dt><dd>↑ ↓ ← →</dd></div><div><dt>Select / Back</dt><dd>Enter / Esc</dd></div><div><dt>Volume / Mute</dt><dd>+ − / M</dd></div><div><dt>Play / Pause</dt><dd>P / Space</dd></div><div><dt>Home</dt><dd>H</dd></div></dl></details>
+        <p class="privacy-note">Local connection. No account required.<br>First time? Select <strong>Allow</strong> on your TV.</p>
+      </section>
+      <section class="remote-area" aria-label="TV remote">
+        <div class="remote">
+          <div class="remote-top"><div class="remote-brand">SAMSUNG<span>SMART TV</span></div><button class="remote-button power" data-key="KEY_POWER" data-icon="power" aria-label="Power / standby" title="Power / standby (turn on with your physical remote)" disabled></button></div>
+          <div class="utility-row"><button class="remote-button" data-key="KEY_SOURCE" disabled><span data-icon="input" aria-hidden="true"></span><span>Source</span></button><button class="remote-button" data-key="KEY_HOME" disabled><span data-icon="home" aria-hidden="true"></span><span>Home</span></button><button class="remote-button" data-key="KEY_MENU" disabled><span data-icon="settings" aria-hidden="true"></span><span>Menu</span></button></div>
+          <section class="app-keys" aria-label="Streaming shortcuts"><h2>Apps</h2><div class="app-grid">
+            <button type="button" data-app="Netflix" aria-label="Open Netflix" disabled><img src="/icons/netflix.svg" alt=""><span>Netflix</span></button>
+            <button type="button" data-app="Prime Video" aria-label="Open Prime Video" disabled><img src="/icons/primevideo.svg" alt=""><span>Prime Video</span></button>
+            <button type="button" data-app="Disney+" aria-label="Open Disney+" disabled><img src="/icons/disneyplus.svg" alt=""><span>Disney+</span></button>
+            <button type="button" data-app="Apple TV" aria-label="Open Apple TV" disabled><img src="/icons/appletv.svg" alt=""><span>Apple TV</span></button>
+            <button type="button" data-app="YouTube" aria-label="Open YouTube" disabled><img src="/icons/youtube.svg" alt=""><span>YouTube</span></button>
+          </div><p id="launch-status" role="status"></p></section>
+          <div class="dpad" role="group" aria-label="Navigation">
+            <button class="nav-button up" data-key="KEY_UP" data-icon="up" aria-label="Up" title="Up" disabled></button>
+            <button class="nav-button left" data-key="KEY_LEFT" data-icon="left" aria-label="Left" title="Left" disabled></button>
+            <button class="nav-button select" data-key="KEY_ENTER" aria-label="OK / select" title="OK / select" disabled>OK</button>
+            <button class="nav-button right" data-key="KEY_RIGHT" data-icon="right" aria-label="Right" title="Right" disabled></button>
+            <button class="nav-button down" data-key="KEY_DOWN" data-icon="down" aria-label="Down" title="Down" disabled></button>
+          </div>
+          <div class="back-row"><button class="remote-button" data-key="KEY_RETURN" disabled><span data-icon="back" aria-hidden="true"></span><span>Back</span></button><button class="remote-button" data-key="KEY_EXIT" disabled><span data-icon="exit" aria-hidden="true"></span><span>Exit</span></button></div>
+          <div class="divider"></div>
+          <div class="rocker-row">
+            <div class="rocker" role="group" aria-label="Volume"><button data-key="KEY_VOLUP" data-icon="plus" aria-label="Volume up" title="Volume up" disabled></button><span>VOL</span><button data-key="KEY_VOLDOWN" data-icon="minus" aria-label="Volume down" title="Volume down" disabled></button></div>
+            <button class="remote-button mute" data-key="KEY_MUTE" disabled><span data-icon="mute" aria-hidden="true"></span><span>Mute</span></button>
+            <div class="rocker" role="group" aria-label="Channels"><button data-key="KEY_CHUP" data-icon="up" aria-label="Channel up" title="Channel up" disabled></button><span>CH</span><button data-key="KEY_CHDOWN" data-icon="down" aria-label="Channel down" title="Channel down" disabled></button></div>
+          </div>
+          <div class="playback" role="group" aria-label="Playback"><button class="remote-button" data-key="KEY_REWIND" data-icon="rewind" aria-label="Rewind" title="Rewind" disabled></button><button class="remote-button" data-key="KEY_PLAY" data-icon="play" aria-label="Play" title="Play" disabled></button><button class="remote-button" data-key="KEY_PAUSE" data-icon="pause" aria-label="Pause" title="Pause" disabled></button><button class="remote-button" data-key="KEY_FF" data-icon="forward" aria-label="Fast forward" title="Fast forward" disabled></button></div>
+          <details class="keypad"><summary>123 <span>Number pad</span><span aria-hidden="true">+</span></summary><div class="number-grid" id="number-grid" role="group" aria-label="Number pad"></div></details>
+          <div class="remote-bottom"><span id="remote-led"></span> TV REMOTE</div>
+        </div>
+        <p class="remote-hint" id="remote-hint">Connect to bring your remote to life.</p>
+        <p class="command-feedback" id="feedback" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+    <footer><span>Made for your TV.</span><span>01 / LOCAL EDITION</span></footer>
+  </div>
+</body>
+</html>
